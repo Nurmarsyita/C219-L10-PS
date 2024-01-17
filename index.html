@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/fullpage.js/dist/fullpage.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <title>Covid-19 in Singapore</title>
+  </head>
+
+  <style>
+    .section {
+      height: 100vh; /* Ensure full-height sections */
+    }
+  </style>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Covid-19 in Singapore</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#section1">Cases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section2">Vaccination Progress</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section3">Vaccination Centres</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="fullpage">
+      <div class="section">
+        <div class="container-fluid">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <h1>Cases</h1>
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h3>Total cases</h3>
+                        <p>257510</p>
+                      </div>
+                      <div class="col-md-4">
+                        <h3>In hospital</h3>
+                        <p>1365</p>
+                      </div>
+                      <div class="col-md-4">
+                        <h3>Total deaths</h3>
+                        <p>678</p>
+                      </div>
+                      <p>
+                        The number of Covid-19 cases in Singapore has grown to
+                        257,510 with 2,079 new cases reported on 14 Dec.
+                      </p>
+                      <p>
+                        Of these, 2,030 were reported in the community and 40 in
+                        the workers' dormitories. The remaining nine cases were
+                        imported.
+                      </p>
+                      <p>
+                        A further 2,275 patients were discharged, inlcuding 366
+                        seniors aged above 60. A total of 238,909 cases have
+                        recovered to date.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p><b>Daily Cases</b> (pass 2 weeks)</p>
+
+                  <div>
+                    <canvas id="myChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>9 out of 10 Singaporeans</h3>
+              <p>have been vaccinated</p>
+
+              <div class="row">
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="currentColor"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+                <div class="col-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="106"
+                    height="106"
+                    fill="grey"
+                    class="bi bi-person-standing"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h1>Vaccination Progress</h1>
+              <br /><br />
+              <p>
+                For every 100 people in Singapore, 88 have received their first
+                dose and 87 are fully vaccinated as at 14 Dec.<br /><br />
+                In addition, the Health Ministry reported that as at 14 Dec, 96
+                percent of the eligible population (aged 12 years and above)
+                have completed their full regime, or received two doses of
+                Covid-19 vaccines.<br /><br />
+                With new Covid-19 variants such as Omicron surfacing, full
+                vaccination will have to include booster shots as well.<br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <h2 class="text-center">Vaccination Centres</h2>
+          <p class="text">
+            There are currently 12 vaccination centres in operation.
+          </p>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <?xml version="1.0" encoding="utf-8"?>
+              <div class="map">
+                <img src="singapore.svg" />
+                <div class="circle-btn btn1" id="BP"></div>
+                <div class="circle-btn btn2" id="CCKP"></div>
+                <div class="circle-btn btn3" id="JP"></div>
+                <div class="circle-btn btn4" id="PRP"></div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <table id="example" class="display" width="100%"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#fullpage").fullpage({
+          sectionsColor: ["#f5f5f5", "#f0f0f0", "#fff"],
+          navigation: true,
+          navigationPosition: "right",
+          anchors: ["section1", "section2", "section3"],
+          menu: "#navbarNav",
+        });
+      });
+
+      const labels = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: "Daily Cases (past 2 weeks)",
+            backgroundColor: "#fd4755",
+            borderColor: "rgb(255, 99, 132)",
+            data: [
+              1134, 1056, 986, 771, 756, 721, 654, 742, 689, 512, 455, 376, 244,
+              103,
+            ],
+          },
+        ],
+      };
+
+      const config = {
+        type: "bar",
+        data: data,
+      };
+
+      // Render chart in <canvas>
+      const myChart = new Chart(document.getElementById("myChart"), config);
+    </script>
+
+    <script>
+      var dataVar = [
+        [
+          "Bedok Polyclinic",
+          "11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662",
+          "Pfizer",
+          "6343 1121",
+        ],
+        [
+          "Bukit Batok Polyclinic",
+          "50 Bukit Batok West Avenue 3, Singapore 659164",
+          "Moderna",
+          "6343 1122",
+        ],
+        [
+          "Bukit Merah Polyclinic",
+          "162 Bukit Merah Central Level 4, Singapore 150163",
+          "Pfizer",
+          "6343 1123",
+        ],
+        [
+          "Choa Chu Kang Polyclinic",
+          "2 Teck Whye Crescent, Singapore 688846",
+          "Moderna",
+          "63431124",
+        ],
+        [
+          "Clementi Polyclinic",
+          "451 Clementi Avenue 3, Singapore 120451",
+          "Pfizer",
+          "63431125",
+        ],
+        [
+          "Geylang Polyclinic",
+          "21 Geylang East Central, Singapore 389707",
+          "Pfizer",
+          "63431126",
+        ],
+        [
+          "Hougang Polyclinic",
+          "89 Hougang Avenue 4, Singapore 538829",
+          "Pfizer",
+          "67651121",
+        ],
+        [
+          "Jurong Polyclinic",
+          "190 Jurong East Avenue 1, Singapore 609788",
+          "Pfizer",
+          "67651122",
+        ],
+        [
+          "Marine Parade Polyclinic",
+          "80 Marine Parade Central, Singapore 440080",
+          "Pfizer",
+          "67651123",
+        ],
+        [
+          "Outram Polyclinic",
+          "3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937",
+          "Comirnaty",
+          "67651124",
+        ],
+        [
+          "Pasir Ris Polyclinic",
+          "1 Pasir Ris Drive 4, Singapore 519457",
+          "Comirnaty",
+          "67651125",
+        ],
+        [
+          "Pioneer Polyclinic",
+          "26 Jurong West Street 61, Singapore 648201",
+          "Moderna",
+          "67651126",
+        ],
+      ];
+
+      $(document).ready(function () {
+        $("#example").DataTable({
+          data: dataVar,
+          columns: [
+            { title: "Name" },
+            { title: "Address" },
+            { title: "Vaccine Type" },
+            { title: "Phone" },
+          ],
+          pageLength: 3,
+        });
+      });
+
+      tippy("#BP", {
+        content:
+          "Centre Name: Bedok Polyclinic <br>" +
+          "Address: 213 Bedok North Street 1, #01-111, Singapore 460213 <br>" +
+          "Contact: 6343 6688",
+        trigger: "mouseenter",
+        allowHTML: true,
+      });
+
+      tippy("#CCKP", {
+        content:
+          "Centre Name: Choa Chu Kang Polyclinic <br>" +
+          "Address: 2 Teck Whye Crescent, Singapore 688846 <br>" +
+          "Contact: 6343 1124",
+        trigger: "mouseenter",
+        allowHTML: true,
+      });
+      
+      tippy("#JP", {
+        content:
+          "Centre Name: Jurong Polyclinic <br>" +
+          "Address: 190 Jurong East Avenue 1, Singapore 609788 <br>" +
+          "Contact: 6765 1122",
+        trigger: "mouseenter",
+        allowHTML: true,
+      });
+
+      tippy("#PRP", {
+        content:
+          "Centre Name: Pasir Ris Polyclinic <br>" +
+          "Address: 1 Pasir Ris Drive 4, Singapore 519457 <br>" +
+          "Contact: 6765 1125",
+        trigger: "mouseenter",
+        allowHTML: true,
+      });
+      
+    </script>
+  </body>
+</html>

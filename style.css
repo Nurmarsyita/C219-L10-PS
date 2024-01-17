@@ -1,0 +1,46 @@
+p {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+.text {
+    text-align: center;
+}
+
+.point1 {
+    position: relative;
+    left: 50%;
+    bottom: 10%;
+}
+
+.circle-btn { 
+    width: 20px; 
+    height: 20px; 
+    background-color: lightblue; 
+    border-radius: 50%; 
+    position: absolute; 
+    cursor: pointer; 
+} 
+ 
+.circle-btn.btn1 { 
+    top: 25rem; 
+    left: 33rem; 
+}
+
+.circle-btn.btn2 { 
+    top: 20rem; 
+    left: 14rem; 
+}
+
+.circle-btn.btn3 { 
+    top: 22rem; 
+    left: 19rem; 
+}
+
+.circle-btn.btn4 { 
+    top: 19rem; 
+    left: 35rem; 
+}
